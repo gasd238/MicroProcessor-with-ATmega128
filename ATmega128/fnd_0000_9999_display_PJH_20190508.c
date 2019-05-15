@@ -63,10 +63,10 @@ int main(void)
 		}
 
 		fnd1++;
-		if(fnd1==10) fnd1=0, fnd10++;
-		else if(fnd10==10) fnd10=0, fnd100++;
-		else if(fnd100==10) fnd100=0, fnd1000++;
-		else if(fnd1000==10) fnd1=0, fnd10=0, fnd100=0, fnd1000=0;
+		if(fnd1 == 10) fnd1 = 0, fnd10++;
+		else if(fnd10 == 10) fnd10 = 0, fnd100++;
+		else if(fnd100 == 10) fnd100 = 0, fnd1000++;
+		else if(fnd1000 == 10) fnd1 = 0, fnd10 = 0, fnd100 = 0, fnd1000 = 0;
 	}
 }
 */
