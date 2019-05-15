@@ -37,7 +37,7 @@ HEX_EEPROM_FLAGS += --change-section-lma .eeprom=0 --no-change-warnings
 
 
 ## Objects that must be built in order to link
-OBJECTS = switch_sw12_led_onoff_PJH_2306_20190410-1.o 
+OBJECTS = fnd_0000_9999_display_PJH_20190508.o 
 
 ## Objects explicitly added by the user
 LINKONLYOBJECTS = 
@@ -46,7 +46,7 @@ LINKONLYOBJECTS =
 all: $(TARGET) ATmega128.hex ATmega128.eep ATmega128.lss size
 
 ## Compile
-switch_sw12_led_onoff_PJH_2306_20190410-1.o: ../switch_sw12_led_onoff_PJH_2306_20190410-1.c
+fnd_0000_9999_display_PJH_20190508.o: ../fnd_0000_9999_display_PJH_20190508.c
 	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
 
 ##Link
