@@ -3,33 +3,33 @@ ATmega128.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         0000000e  00800100  0000020e  000002a2  2**0
+  0 .data         0000000e  00800100  00000236  000002ca  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         0000020e  00000000  00000000  00000094  2**1
+  1 .text         00000236  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          0000000c  0080010e  0080010e  000002b0  2**0
+  2 .bss          0000000a  0080010e  0080010e  000002d8  2**0
                   ALLOC
-  3 .stab         000006cc  00000000  00000000  000002b0  2**2
+  3 .stab         000006cc  00000000  00000000  000002d8  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      00000085  00000000  00000000  0000097c  2**0
+  4 .stabstr      00000085  00000000  00000000  000009a4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_aranges 00000020  00000000  00000000  00000a01  2**0
+  5 .debug_aranges 00000020  00000000  00000000  00000a29  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_pubnames 00000043  00000000  00000000  00000a21  2**0
+  6 .debug_pubnames 0000003d  00000000  00000000  00000a49  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_info   0000021b  00000000  00000000  00000a64  2**0
+  7 .debug_info   000002ba  00000000  00000000  00000a86  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_abbrev 00000144  00000000  00000000  00000c7f  2**0
+  8 .debug_abbrev 00000155  00000000  00000000  00000d40  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_line   0000020a  00000000  00000000  00000dc3  2**0
+  9 .debug_line   0000023d  00000000  00000000  00000e95  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_frame  00000020  00000000  00000000  00000fd0  2**2
+ 10 .debug_frame  00000020  00000000  00000000  000010d4  2**2
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_str    0000010e  00000000  00000000  00000ff0  2**0
+ 11 .debug_str    00000113  00000000  00000000  000010f4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc    00000046  00000000  00000000  000010fe  2**0
+ 12 .debug_loc    00000118  00000000  00000000  00001207  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_pubtypes 00000038  00000000  00000000  00001144  2**0
+ 13 .debug_pubtypes 00000038  00000000  00000000  0000131f  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -83,7 +83,7 @@ Disassembly of section .text:
   98:	11 e0       	ldi	r17, 0x01	; 1
   9a:	a0 e0       	ldi	r26, 0x00	; 0
   9c:	b1 e0       	ldi	r27, 0x01	; 1
-  9e:	ee e0       	ldi	r30, 0x0E	; 14
+  9e:	e6 e3       	ldi	r30, 0x36	; 54
   a0:	f2 e0       	ldi	r31, 0x02	; 2
   a2:	00 e0       	ldi	r16, 0x00	; 0
   a4:	0b bf       	out	0x3b, r16	; 59
@@ -104,18 +104,18 @@ Disassembly of section .text:
   ba:	1d 92       	st	X+, r1
 
 000000bc <.do_clear_bss_start>:
-  bc:	aa 31       	cpi	r26, 0x1A	; 26
+  bc:	a8 31       	cpi	r26, 0x18	; 24
   be:	b1 07       	cpc	r27, r17
   c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
   c2:	0e 94 67 00 	call	0xce	; 0xce <main>
-  c6:	0c 94 05 01 	jmp	0x20a	; 0x20a <_exit>
+  c6:	0c 94 19 01 	jmp	0x232	; 0x232 <_exit>
 
 000000ca <__bad_interrupt>:
   ca:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 000000ce <main>:
 unsigned char latch[4] = {0x01, 0x02, 0x04, 0x08};
-int i, j,fnd[4];
+int i, fnd[4];
 
 int main(void)
 {
@@ -126,144 +126,158 @@ int main(void)
   d2:	8f e3       	ldi	r24, 0x3F	; 63
   d4:	82 b9       	out	0x02, r24	; 2
 	while(1){
-		for(i=0;i<10;i++){
-  d6:	10 92 11 01 	sts	0x0111, r1
-  da:	10 92 10 01 	sts	0x0110, r1
-  de:	31 c0       	rjmp	.+98     	; 0x142 <main+0x74>
-			for(j=0;j<4;j++){
-  e0:	10 92 0f 01 	sts	0x010F, r1
-  e4:	10 92 0e 01 	sts	0x010E, r1
-  e8:	1c c0       	rjmp	.+56     	; 0x122 <main+0x54>
-				PORTE = latch[j], PORTD = digit[fnd[j]], _delay_ms(2.5);
+		for(i=0;i<100;i++){
+  d6:	10 92 0f 01 	sts	0x010F, r1
+  da:	10 92 0e 01 	sts	0x010E, r1
+  de:	47 c0       	rjmp	.+142    	; 0x16e <main+0xa0>
+			PORTE = latch[0], PORTD = digit[fnd[0]], _delay_ms(2.5);
+  e0:	40 91 0a 01 	lds	r20, 0x010A
+  e4:	43 b9       	out	0x03, r20	; 3
+  e6:	80 50       	subi	r24, 0x00	; 0
+  e8:	9f 4f       	sbci	r25, 0xFF	; 255
   ea:	fc 01       	movw	r30, r24
-  ec:	e6 5f       	subi	r30, 0xF6	; 246
-  ee:	fe 4f       	sbci	r31, 0xFE	; 254
-  f0:	20 81       	ld	r18, Z
-  f2:	23 b9       	out	0x03, r18	; 3
-  f4:	fc 01       	movw	r30, r24
-  f6:	ee 0f       	add	r30, r30
-  f8:	ff 1f       	adc	r31, r31
-  fa:	ee 5e       	subi	r30, 0xEE	; 238
-  fc:	fe 4f       	sbci	r31, 0xFE	; 254
-  fe:	01 90       	ld	r0, Z+
- 100:	f0 81       	ld	r31, Z
- 102:	e0 2d       	mov	r30, r0
- 104:	e0 50       	subi	r30, 0x00	; 0
- 106:	ff 4f       	sbci	r31, 0xFF	; 255
- 108:	20 81       	ld	r18, Z
- 10a:	22 bb       	out	0x12, r18	; 18
+  ec:	80 81       	ld	r24, Z
+  ee:	82 bb       	out	0x12, r24	; 18
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 10c:	ef e0       	ldi	r30, 0x0F	; 15
- 10e:	f7 e2       	ldi	r31, 0x27	; 39
- 110:	31 97       	sbiw	r30, 0x01	; 1
- 112:	f1 f7       	brne	.-4      	; 0x110 <main+0x42>
- 114:	00 c0       	rjmp	.+0      	; 0x116 <main+0x48>
- 116:	00 00       	nop
-{
-	DDRD = 0xff;
-	DDRE = 0x3f;
-	while(1){
-		for(i=0;i<10;i++){
-			for(j=0;j<4;j++){
- 118:	01 96       	adiw	r24, 0x01	; 1
- 11a:	90 93 0f 01 	sts	0x010F, r25
- 11e:	80 93 0e 01 	sts	0x010E, r24
- 122:	80 91 0e 01 	lds	r24, 0x010E
- 126:	90 91 0f 01 	lds	r25, 0x010F
- 12a:	84 30       	cpi	r24, 0x04	; 4
- 12c:	91 05       	cpc	r25, r1
- 12e:	ec f2       	brlt	.-70     	; 0xea <main+0x1c>
+  f0:	8f e0       	ldi	r24, 0x0F	; 15
+  f2:	97 e2       	ldi	r25, 0x27	; 39
+  f4:	01 97       	sbiw	r24, 0x01	; 1
+  f6:	f1 f7       	brne	.-4      	; 0xf4 <main+0x26>
+  f8:	00 c0       	rjmp	.+0      	; 0xfa <main+0x2c>
+  fa:	00 00       	nop
+			PORTE = latch[1], PORTD = digit[fnd[1]], _delay_ms(2.5);
+  fc:	80 91 0b 01 	lds	r24, 0x010B
+ 100:	83 b9       	out	0x03, r24	; 3
+ 102:	e0 91 12 01 	lds	r30, 0x0112
+ 106:	f0 91 13 01 	lds	r31, 0x0113
+ 10a:	e0 50       	subi	r30, 0x00	; 0
+ 10c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 10e:	80 81       	ld	r24, Z
+ 110:	82 bb       	out	0x12, r24	; 18
+ 112:	ef e0       	ldi	r30, 0x0F	; 15
+ 114:	f7 e2       	ldi	r31, 0x27	; 39
+ 116:	31 97       	sbiw	r30, 0x01	; 1
+ 118:	f1 f7       	brne	.-4      	; 0x116 <main+0x48>
+ 11a:	00 c0       	rjmp	.+0      	; 0x11c <main+0x4e>
+ 11c:	00 00       	nop
+			PORTE = latch[2], PORTD = digit[fnd[2]], _delay_ms(2.5);
+ 11e:	80 91 0c 01 	lds	r24, 0x010C
+ 122:	83 b9       	out	0x03, r24	; 3
+ 124:	e0 91 14 01 	lds	r30, 0x0114
+ 128:	f0 91 15 01 	lds	r31, 0x0115
+ 12c:	e0 50       	subi	r30, 0x00	; 0
+ 12e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 130:	80 81       	ld	r24, Z
+ 132:	82 bb       	out	0x12, r24	; 18
+ 134:	8f e0       	ldi	r24, 0x0F	; 15
+ 136:	97 e2       	ldi	r25, 0x27	; 39
+ 138:	01 97       	sbiw	r24, 0x01	; 1
+ 13a:	f1 f7       	brne	.-4      	; 0x138 <main+0x6a>
+ 13c:	00 c0       	rjmp	.+0      	; 0x13e <main+0x70>
+ 13e:	00 00       	nop
+			PORTE = latch[3], PORTD = digit[fnd[3]], _delay_ms(2.5);
+ 140:	80 91 0d 01 	lds	r24, 0x010D
+ 144:	83 b9       	out	0x03, r24	; 3
+ 146:	e0 91 16 01 	lds	r30, 0x0116
+ 14a:	f0 91 17 01 	lds	r31, 0x0117
+ 14e:	e0 50       	subi	r30, 0x00	; 0
+ 150:	ff 4f       	sbci	r31, 0xFF	; 255
+ 152:	80 81       	ld	r24, Z
+ 154:	82 bb       	out	0x12, r24	; 18
+ 156:	ef e0       	ldi	r30, 0x0F	; 15
+ 158:	f7 e2       	ldi	r31, 0x27	; 39
+ 15a:	31 97       	sbiw	r30, 0x01	; 1
+ 15c:	f1 f7       	brne	.-4      	; 0x15a <main+0x8c>
+ 15e:	00 c0       	rjmp	.+0      	; 0x160 <main+0x92>
+ 160:	00 00       	nop
 int main(void)
 {
 	DDRD = 0xff;
 	DDRE = 0x3f;
 	while(1){
-		for(i=0;i<10;i++){
- 130:	80 91 10 01 	lds	r24, 0x0110
- 134:	90 91 11 01 	lds	r25, 0x0111
- 138:	01 96       	adiw	r24, 0x01	; 1
- 13a:	90 93 11 01 	sts	0x0111, r25
- 13e:	80 93 10 01 	sts	0x0110, r24
- 142:	80 91 10 01 	lds	r24, 0x0110
- 146:	90 91 11 01 	lds	r25, 0x0111
- 14a:	8a 30       	cpi	r24, 0x0A	; 10
- 14c:	91 05       	cpc	r25, r1
- 14e:	44 f2       	brlt	.-112    	; 0xe0 <main+0x12>
-			for(j=0;j<4;j++){
-				PORTE = latch[j], PORTD = digit[fnd[j]], _delay_ms(2.5);
-			}
+		for(i=0;i<100;i++){
+ 162:	2f 5f       	subi	r18, 0xFF	; 255
+ 164:	3f 4f       	sbci	r19, 0xFF	; 255
+ 166:	30 93 0f 01 	sts	0x010F, r19
+ 16a:	20 93 0e 01 	sts	0x010E, r18
+ 16e:	20 91 0e 01 	lds	r18, 0x010E
+ 172:	30 91 0f 01 	lds	r19, 0x010F
+ 176:	80 91 10 01 	lds	r24, 0x0110
+ 17a:	90 91 11 01 	lds	r25, 0x0111
+ 17e:	24 36       	cpi	r18, 0x64	; 100
+ 180:	31 05       	cpc	r19, r1
+ 182:	0c f4       	brge	.+2      	; 0x186 <main+0xb8>
+ 184:	ad cf       	rjmp	.-166    	; 0xe0 <main+0x12>
+			PORTE = latch[1], PORTD = digit[fnd[1]], _delay_ms(2.5);
+			PORTE = latch[2], PORTD = digit[fnd[2]], _delay_ms(2.5);
+			PORTE = latch[3], PORTD = digit[fnd[3]], _delay_ms(2.5);
 		}
 
 		fnd[0]++;
- 150:	80 91 12 01 	lds	r24, 0x0112
- 154:	90 91 13 01 	lds	r25, 0x0113
- 158:	01 96       	adiw	r24, 0x01	; 1
- 15a:	90 93 13 01 	sts	0x0113, r25
- 15e:	80 93 12 01 	sts	0x0112, r24
+ 186:	01 96       	adiw	r24, 0x01	; 1
+ 188:	90 93 11 01 	sts	0x0111, r25
+ 18c:	80 93 10 01 	sts	0x0110, r24
 		if(fnd[0] == 10) fnd[0] = 0, fnd[1]++;
- 162:	8a 30       	cpi	r24, 0x0A	; 10
- 164:	91 05       	cpc	r25, r1
- 166:	71 f4       	brne	.+28     	; 0x184 <main+0xb6>
- 168:	10 92 13 01 	sts	0x0113, r1
- 16c:	10 92 12 01 	sts	0x0112, r1
- 170:	80 91 14 01 	lds	r24, 0x0114
- 174:	90 91 15 01 	lds	r25, 0x0115
- 178:	01 96       	adiw	r24, 0x01	; 1
- 17a:	90 93 15 01 	sts	0x0115, r25
- 17e:	80 93 14 01 	sts	0x0114, r24
- 182:	a9 cf       	rjmp	.-174    	; 0xd6 <main+0x8>
-		else if(fnd[1] == 10) fnd[1] = 0, fnd[2]++;
- 184:	80 91 14 01 	lds	r24, 0x0114
- 188:	90 91 15 01 	lds	r25, 0x0115
- 18c:	8a 30       	cpi	r24, 0x0A	; 10
- 18e:	91 05       	cpc	r25, r1
- 190:	71 f4       	brne	.+28     	; 0x1ae <main+0xe0>
- 192:	10 92 15 01 	sts	0x0115, r1
- 196:	10 92 14 01 	sts	0x0114, r1
- 19a:	80 91 16 01 	lds	r24, 0x0116
- 19e:	90 91 17 01 	lds	r25, 0x0117
- 1a2:	01 96       	adiw	r24, 0x01	; 1
- 1a4:	90 93 17 01 	sts	0x0117, r25
- 1a8:	80 93 16 01 	sts	0x0116, r24
- 1ac:	94 cf       	rjmp	.-216    	; 0xd6 <main+0x8>
-		else if(fnd[2] == 10) fnd[2] = 0, fnd[3]++;
- 1ae:	80 91 16 01 	lds	r24, 0x0116
- 1b2:	90 91 17 01 	lds	r25, 0x0117
- 1b6:	8a 30       	cpi	r24, 0x0A	; 10
- 1b8:	91 05       	cpc	r25, r1
- 1ba:	71 f4       	brne	.+28     	; 0x1d8 <main+0x10a>
- 1bc:	10 92 17 01 	sts	0x0117, r1
- 1c0:	10 92 16 01 	sts	0x0116, r1
- 1c4:	80 91 18 01 	lds	r24, 0x0118
- 1c8:	90 91 19 01 	lds	r25, 0x0119
- 1cc:	01 96       	adiw	r24, 0x01	; 1
- 1ce:	90 93 19 01 	sts	0x0119, r25
- 1d2:	80 93 18 01 	sts	0x0118, r24
- 1d6:	7f cf       	rjmp	.-258    	; 0xd6 <main+0x8>
-		else if(fnd[3] == 10) fnd[0] = 0, fnd[1] = 0, fnd[2] = 0, fnd[3] = 0;
- 1d8:	80 91 18 01 	lds	r24, 0x0118
- 1dc:	90 91 19 01 	lds	r25, 0x0119
+ 190:	8a 30       	cpi	r24, 0x0A	; 10
+ 192:	91 05       	cpc	r25, r1
+ 194:	69 f4       	brne	.+26     	; 0x1b0 <main+0xe2>
+ 196:	10 92 11 01 	sts	0x0111, r1
+ 19a:	10 92 10 01 	sts	0x0110, r1
+ 19e:	80 91 12 01 	lds	r24, 0x0112
+ 1a2:	90 91 13 01 	lds	r25, 0x0113
+ 1a6:	01 96       	adiw	r24, 0x01	; 1
+ 1a8:	90 93 13 01 	sts	0x0113, r25
+ 1ac:	80 93 12 01 	sts	0x0112, r24
+		if(fnd[1] == 6) fnd[1] = 0, fnd[2]++;
+ 1b0:	80 91 12 01 	lds	r24, 0x0112
+ 1b4:	90 91 13 01 	lds	r25, 0x0113
+ 1b8:	86 30       	cpi	r24, 0x06	; 6
+ 1ba:	91 05       	cpc	r25, r1
+ 1bc:	69 f4       	brne	.+26     	; 0x1d8 <main+0x10a>
+ 1be:	10 92 13 01 	sts	0x0113, r1
+ 1c2:	10 92 12 01 	sts	0x0112, r1
+ 1c6:	80 91 14 01 	lds	r24, 0x0114
+ 1ca:	90 91 15 01 	lds	r25, 0x0115
+ 1ce:	01 96       	adiw	r24, 0x01	; 1
+ 1d0:	90 93 15 01 	sts	0x0115, r25
+ 1d4:	80 93 14 01 	sts	0x0114, r24
+		if(fnd[2] == 10) fnd[2] = 0, fnd[3]++;
+ 1d8:	80 91 14 01 	lds	r24, 0x0114
+ 1dc:	90 91 15 01 	lds	r25, 0x0115
  1e0:	8a 30       	cpi	r24, 0x0A	; 10
  1e2:	91 05       	cpc	r25, r1
- 1e4:	09 f0       	breq	.+2      	; 0x1e8 <main+0x11a>
- 1e6:	77 cf       	rjmp	.-274    	; 0xd6 <main+0x8>
- 1e8:	10 92 13 01 	sts	0x0113, r1
- 1ec:	10 92 12 01 	sts	0x0112, r1
- 1f0:	10 92 15 01 	sts	0x0115, r1
- 1f4:	10 92 14 01 	sts	0x0114, r1
- 1f8:	10 92 17 01 	sts	0x0117, r1
- 1fc:	10 92 16 01 	sts	0x0116, r1
- 200:	10 92 19 01 	sts	0x0119, r1
- 204:	10 92 18 01 	sts	0x0118, r1
- 208:	66 cf       	rjmp	.-308    	; 0xd6 <main+0x8>
+ 1e4:	69 f4       	brne	.+26     	; 0x200 <main+0x132>
+ 1e6:	10 92 15 01 	sts	0x0115, r1
+ 1ea:	10 92 14 01 	sts	0x0114, r1
+ 1ee:	80 91 16 01 	lds	r24, 0x0116
+ 1f2:	90 91 17 01 	lds	r25, 0x0117
+ 1f6:	01 96       	adiw	r24, 0x01	; 1
+ 1f8:	90 93 17 01 	sts	0x0117, r25
+ 1fc:	80 93 16 01 	sts	0x0116, r24
+		if(fnd[3] == 6) fnd[0] = 0, fnd[1] = 0, fnd[2] = 0, fnd[3] = 0;
+ 200:	80 91 16 01 	lds	r24, 0x0116
+ 204:	90 91 17 01 	lds	r25, 0x0117
+ 208:	86 30       	cpi	r24, 0x06	; 6
+ 20a:	91 05       	cpc	r25, r1
+ 20c:	09 f0       	breq	.+2      	; 0x210 <main+0x142>
+ 20e:	63 cf       	rjmp	.-314    	; 0xd6 <main+0x8>
+ 210:	10 92 11 01 	sts	0x0111, r1
+ 214:	10 92 10 01 	sts	0x0110, r1
+ 218:	10 92 13 01 	sts	0x0113, r1
+ 21c:	10 92 12 01 	sts	0x0112, r1
+ 220:	10 92 15 01 	sts	0x0115, r1
+ 224:	10 92 14 01 	sts	0x0114, r1
+ 228:	10 92 17 01 	sts	0x0117, r1
+ 22c:	10 92 16 01 	sts	0x0116, r1
+ 230:	52 cf       	rjmp	.-348    	; 0xd6 <main+0x8>
 
-0000020a <_exit>:
- 20a:	f8 94       	cli
+00000232 <_exit>:
+ 232:	f8 94       	cli
 
-0000020c <__stop_program>:
- 20c:	ff cf       	rjmp	.-2      	; 0x20c <__stop_program>
+00000234 <__stop_program>:
+ 234:	ff cf       	rjmp	.-2      	; 0x234 <__stop_program>
