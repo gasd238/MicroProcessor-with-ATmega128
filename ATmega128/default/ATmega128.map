@@ -1,27 +1,7 @@
 Archive member included because of file (symbol)
 
-c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_divmodhi4.o)
-                              fnd_0000_5959_display_PJH_2306_20190515.o (__divmodhi4)
 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
                               c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o (exit)
-c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
-                              fnd_0000_5959_display_PJH_2306_20190515.o (__do_copy_data)
-c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
-                              fnd_0000_5959_display_PJH_2306_20190515.o (__do_clear_bss)
-c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_udivmodhi4.o)
-                              c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_divmodhi4.o) (__udivmodhi4)
-
-Allocating common symbols
-Common symbol       size              file
-
-S10                 0x2               fnd_0000_5959_display_PJH_2306_20190515.o
-S1                  0x2               fnd_0000_5959_display_PJH_2306_20190515.o
-i                   0x2               fnd_0000_5959_display_PJH_2306_20190515.o
-min                 0x2               fnd_0000_5959_display_PJH_2306_20190515.o
-run                 0x2               fnd_0000_5959_display_PJH_2306_20190515.o
-sec                 0x2               fnd_0000_5959_display_PJH_2306_20190515.o
-M1                  0x2               fnd_0000_5959_display_PJH_2306_20190515.o
-M10                 0x2               fnd_0000_5959_display_PJH_2306_20190515.o
 
 Memory Configuration
 
@@ -38,7 +18,7 @@ Linker script and memory map
 
 Address of section .data set to 0x800100
 LOAD c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o
-LOAD fnd_0000_5959_display_PJH_2306_20190515.o
+LOAD fasdf.o
 LOAD c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a
 LOAD c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51\libc.a
 LOAD c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a
@@ -133,7 +113,7 @@ LOAD c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x2de
+.text           0x00000000       0xb8
  *(.vectors)
  .vectors       0x00000000       0x8c c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o
                 0x00000000                __vector_default
@@ -171,10 +151,6 @@ LOAD c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x00000098       0x1a c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
-                0x00000098                __do_copy_data
- .init4         0x000000b2       0x10 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
-                0x000000b2                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -185,68 +161,56 @@ LOAD c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x000000c2        0x8 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o
+ .init9         0x00000098        0x8 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o
  *(.init9)
  *(.text)
- .text          0x000000ca        0x4 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o
-                0x000000ca                __vector_22
-                0x000000ca                __vector_28
-                0x000000ca                __vector_1
-                0x000000ca                __vector_32
-                0x000000ca                __vector_34
-                0x000000ca                __vector_24
-                0x000000ca                __vector_12
-                0x000000ca                __bad_interrupt
-                0x000000ca                __vector_6
-                0x000000ca                __vector_31
-                0x000000ca                __vector_3
-                0x000000ca                __vector_23
-                0x000000ca                __vector_30
-                0x000000ca                __vector_25
-                0x000000ca                __vector_11
-                0x000000ca                __vector_13
-                0x000000ca                __vector_17
-                0x000000ca                __vector_19
-                0x000000ca                __vector_7
-                0x000000ca                __vector_27
-                0x000000ca                __vector_5
-                0x000000ca                __vector_33
-                0x000000ca                __vector_4
-                0x000000ca                __vector_9
-                0x000000ca                __vector_2
-                0x000000ca                __vector_21
-                0x000000ca                __vector_15
-                0x000000ca                __vector_29
-                0x000000ca                __vector_8
-                0x000000ca                __vector_26
-                0x000000ca                __vector_14
-                0x000000ca                __vector_10
-                0x000000ca                __vector_16
-                0x000000ca                __vector_18
-                0x000000ca                __vector_20
- .text          0x000000ce      0x1be fnd_0000_5959_display_PJH_2306_20190515.o
-                0x000000ce                display
-                0x000001ba                main
- .text          0x0000028c        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_divmodhi4.o)
- .text          0x0000028c        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
- .text          0x0000028c        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
- .text          0x0000028c        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
- .text          0x0000028c        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_udivmodhi4.o)
-                0x0000028c                . = ALIGN (0x2)
+ .text          0x000000a0        0x4 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o
+                0x000000a0                __vector_22
+                0x000000a0                __vector_28
+                0x000000a0                __vector_1
+                0x000000a0                __vector_32
+                0x000000a0                __vector_34
+                0x000000a0                __vector_24
+                0x000000a0                __vector_12
+                0x000000a0                __bad_interrupt
+                0x000000a0                __vector_6
+                0x000000a0                __vector_31
+                0x000000a0                __vector_3
+                0x000000a0                __vector_23
+                0x000000a0                __vector_30
+                0x000000a0                __vector_25
+                0x000000a0                __vector_11
+                0x000000a0                __vector_13
+                0x000000a0                __vector_17
+                0x000000a0                __vector_19
+                0x000000a0                __vector_7
+                0x000000a0                __vector_27
+                0x000000a0                __vector_5
+                0x000000a0                __vector_33
+                0x000000a0                __vector_4
+                0x000000a0                __vector_9
+                0x000000a0                __vector_2
+                0x000000a0                __vector_21
+                0x000000a0                __vector_15
+                0x000000a0                __vector_29
+                0x000000a0                __vector_8
+                0x000000a0                __vector_26
+                0x000000a0                __vector_14
+                0x000000a0                __vector_10
+                0x000000a0                __vector_16
+                0x000000a0                __vector_18
+                0x000000a0                __vector_20
+ .text          0x000000a4       0x10 fasdf.o
+                0x000000a4                main
+ .text          0x000000b4        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+                0x000000b4                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x0000028c       0x26 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_divmodhi4.o)
-                0x0000028c                _div
-                0x0000028c                __divmodhi4
- .text.libgcc   0x000002b2        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
- .text.libgcc   0x000002b2        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
- .text.libgcc   0x000002b2        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
- .text.libgcc   0x000002b2       0x28 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_udivmodhi4.o)
-                0x000002b2                __udivmodhi4
-                0x000002da                . = ALIGN (0x2)
+ .text.libgcc   0x000000b4        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+                0x000000b4                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000002da        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
-                0x000002da                _exit
-                0x000002da                exit
+ .fini9         0x000000b4        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+                0x000000b4                _exit
+                0x000000b4                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -265,61 +229,42 @@ LOAD c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000002da        0x4 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ .fini0         0x000000b4        0x4 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
  *(.fini0)
-                0x000002de                _etext = .
+                0x000000b8                _etext = .
 
-.data           0x00800100        0xe load address 0x000002de
+.data           0x00800100        0x0 load address 0x000000b8
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o
- .data          0x00800100        0xe fnd_0000_5959_display_PJH_2306_20190515.o
-                0x00800100                digit
-                0x0080010a                latch
- .data          0x0080010e        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_divmodhi4.o)
- .data          0x0080010e        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
- .data          0x0080010e        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
- .data          0x0080010e        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
- .data          0x0080010e        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_udivmodhi4.o)
+ .data          0x00800100        0x0 fasdf.o
+ .data          0x00800100        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x0080010e                . = ALIGN (0x2)
-                0x0080010e                _edata = .
-                0x0080010e                PROVIDE (__data_end, .)
+                0x00800100                . = ALIGN (0x2)
+                0x00800100                _edata = .
+                0x00800100                PROVIDE (__data_end, .)
 
-.bss            0x0080010e       0x10
-                0x0080010e                PROVIDE (__bss_start, .)
+.bss            0x00800100        0x0
+                0x00800100                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x0080010e        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o
- .bss           0x0080010e        0x0 fnd_0000_5959_display_PJH_2306_20190515.o
- .bss           0x0080010e        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_divmodhi4.o)
- .bss           0x0080010e        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
- .bss           0x0080010e        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
- .bss           0x0080010e        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
- .bss           0x0080010e        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_udivmodhi4.o)
+ .bss           0x00800100        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o
+ .bss           0x00800100        0x0 fasdf.o
+ .bss           0x00800100        0x0 c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
  *(.bss*)
  *(COMMON)
- COMMON         0x0080010e       0x10 fnd_0000_5959_display_PJH_2306_20190515.o
-                0x0080010e                S10
-                0x00800110                S1
-                0x00800112                i
-                0x00800114                min
-                0x00800116                run
-                0x00800118                sec
-                0x0080011a                M1
-                0x0080011c                M10
-                0x0080011e                PROVIDE (__bss_end, .)
-                0x000002de                __data_load_start = LOADADDR (.data)
-                0x000002ec                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800100                PROVIDE (__bss_end, .)
+                0x000000b8                __data_load_start = LOADADDR (.data)
+                0x000000b8                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080011e        0x0
-                0x0080011e                PROVIDE (__noinit_start, .)
+.noinit         0x00800100        0x0
+                0x00800100                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0080011e                PROVIDE (__noinit_end, .)
-                0x0080011e                _end = .
-                0x0080011e                PROVIDE (__heap_start, .)
+                0x00800100                PROVIDE (__noinit_end, .)
+                0x00800100                _end = .
+                0x00800100                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -375,39 +320,38 @@ LOAD c:/program files (x86)/atmel/avr tools/avr toolchain/bin/../lib/gcc/avr/4.5
 .debug_aranges  0x00000000       0x20
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x20 fnd_0000_5959_display_PJH_2306_20190515.o
+                0x00000000       0x20 fasdf.o
 
 .debug_pubnames
-                0x00000000       0x77
+                0x00000000       0x1b
  *(.debug_pubnames)
  .debug_pubnames
-                0x00000000       0x77 fnd_0000_5959_display_PJH_2306_20190515.o
+                0x00000000       0x1b fasdf.o
 
-.debug_info     0x00000000      0x388
+.debug_info     0x00000000       0x81
  *(.debug_info)
- .debug_info    0x00000000      0x388 fnd_0000_5959_display_PJH_2306_20190515.o
+ .debug_info    0x00000000       0x81 fasdf.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev   0x00000000      0x182
+.debug_abbrev   0x00000000       0x4c
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x182 fnd_0000_5959_display_PJH_2306_20190515.o
+ .debug_abbrev  0x00000000       0x4c fasdf.o
 
-.debug_line     0x00000000      0x28a
+.debug_line     0x00000000       0xee
  *(.debug_line)
- .debug_line    0x00000000      0x28a fnd_0000_5959_display_PJH_2306_20190515.o
+ .debug_line    0x00000000       0xee fasdf.o
 
-.debug_frame    0x00000000       0x30
+.debug_frame    0x00000000       0x20
  *(.debug_frame)
- .debug_frame   0x00000000       0x30 fnd_0000_5959_display_PJH_2306_20190515.o
+ .debug_frame   0x00000000       0x20 fasdf.o
 
-.debug_str      0x00000000      0x11b
+.debug_str      0x00000000       0x7f
  *(.debug_str)
- .debug_str     0x00000000      0x11b fnd_0000_5959_display_PJH_2306_20190515.o
-                                0x14f (size before relaxing)
+ .debug_str     0x00000000       0x7f fasdf.o
+                                 0xb3 (size before relaxing)
 
-.debug_loc      0x00000000       0x40
+.debug_loc
  *(.debug_loc)
- .debug_loc     0x00000000       0x40 fnd_0000_5959_display_PJH_2306_20190515.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -415,6 +359,6 @@ OUTPUT(ATmega128.elf elf32-avr)
 LOAD linker stubs
 
 .debug_pubtypes
-                0x00000000       0x38
+                0x00000000       0x1e
  .debug_pubtypes
-                0x00000000       0x38 fnd_0000_5959_display_PJH_2306_20190515.o
+                0x00000000       0x1e fasdf.o

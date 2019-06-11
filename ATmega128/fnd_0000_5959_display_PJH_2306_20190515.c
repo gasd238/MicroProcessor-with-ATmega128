@@ -239,7 +239,7 @@ void display(int MIN, int SEC){
 	M10 = (MIN/10)%10;
 	M1 = MIN % 10;
 	S10 = (SEC/1000)%10;
-	S1 = (SEC/100)%10;x	
+	S1 = (SEC/100)%10;	
 	PORTD = digit[S1], PORTE = latch[0], _delay_ms(2.5);
 	PORTD = digit[S10],PORTE = latch[1],  _delay_ms(2.5); 
 	PORTD = digit[M1]&0x7f, PORTE = latch[2], _delay_ms(2.5);

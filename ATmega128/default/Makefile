@@ -37,7 +37,7 @@ HEX_EEPROM_FLAGS += --change-section-lma .eeprom=0 --no-change-warnings
 
 
 ## Objects that must be built in order to link
-OBJECTS = fnd_0000_5959_display_PJH_2306_20190515.o 
+OBJECTS = fasdf.o 
 
 ## Objects explicitly added by the user
 LINKONLYOBJECTS = 
@@ -46,7 +46,7 @@ LINKONLYOBJECTS =
 all: $(TARGET) ATmega128.hex ATmega128.eep ATmega128.lss size
 
 ## Compile
-fnd_0000_5959_display_PJH_2306_20190515.o: ../fnd_0000_5959_display_PJH_2306_20190515.c
+fasdf.o: ../fasdf.c
 	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
 
 ##Link
